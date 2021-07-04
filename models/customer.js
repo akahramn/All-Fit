@@ -1,11 +1,11 @@
-const Booking = require('./booking')
+const Booking = require('../models/booking')
 const uuid = require('uuid')
 
 class Customer{
-    constructor(id = uuid.v4(), name){
+    constructor(id = uuid.v4(), name, bookings = []){
         this.id = id
         this.name = name
-        this.bookings = []
+        this.bookings = bookings
     }
     book(FitnessCenter){
         const booking = new Booking(this, FitnessCenter)
@@ -16,9 +16,9 @@ class Customer{
     }
     
     static create({id, name, bookings}) {
-        const newCostemer = new Customer(id, name)
-        newCostemer.bookings = bookings
-        return newCostemer
+        
+        return new Customer(id, name, bookings)
+        
     }
 }
 
