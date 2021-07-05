@@ -1,11 +1,15 @@
-const Booking = require('./booking')
+const Booking = require('../models/booking')
 const uuid = require('uuid')
+const Rating = require('./rating')
+
 
 class Customer{
-    constructor(id = uuid.v4(), name){
+    constructor(id = uuid.v4(), name, phoneNum, mail, bookings = []){
         this.id = id
         this.name = name
-        this.bookings = []
+        this.phoneNum = phoneNum
+        this.mail = mail
+        this.bookings = bookings
     }
     book(FitnessCenter){
         const booking = new Booking(this, FitnessCenter)
@@ -14,11 +18,16 @@ class Customer{
         return booking
         
     }
+
+    rate(fitnessCenter, point, comment) {
+        const ratings = new Rating(this, fitnessCenter, point, comment)
+        fitnessCenter.ratings.push(ratings)
+    }
     
-    static create({id, name, bookings}) {
-        const newCostemer = new Customer(id, name)
-        newCostemer.bookings = bookings
-        return newCostemer
+    static create({id, name, phoneNum, mail, bookings}) {
+        
+        return new Customer(id, name, phoneNum, mail, bookings)
+        
     }
 }
 
