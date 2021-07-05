@@ -3,7 +3,7 @@ const FitnessCenter = require('../models/fitnessCenter')
 
 
 class FitnessCenterDatabase extends BaseDatabase{
-    fimdByFitnessCenterName(name){
+    findByFitnessCenterName(name){
         return this.findby('name', name)
     }
 

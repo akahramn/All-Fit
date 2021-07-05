@@ -1,13 +1,14 @@
 
 class FitnessCenter{
-    constructor(name, location, point){
+    constructor(name, location, phoneNum, ratings = []){
         this.name = name
         this.location = location
-        this.point = point
+        this.phoneNum = phoneNum
+        this.ratings = ratings
     }
 
-    static create({name, location, point}) {
-        return new FitnessCenter(name, location, point)
+    static create({name, location, phoneNum, ratings}) {
+        return new FitnessCenter(name, location, phoneNum, ratings)
       }
 }
 

@@ -46,8 +46,9 @@ update(object) {
     this.save(objects)
 }
 findBy(property, value) {
-    return this.load().find(o => o[property] == value)
+    return this.load().find(o => o.name == value)
   }
+  
 }
 
 module.exports = BaseDatabase
