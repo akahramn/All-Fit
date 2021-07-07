@@ -11,17 +11,14 @@ const FitnessCenter = require('./models/fitnessCenter')
 const printbookinghistory = require('./lib/print-booking-history')
 
 
-// const abdullah = customerDatabase.findByName('Abdullah')
-// const cemre = customerDatabase.findByName('Cemre')
-// // const mcfit = fitnessCenterDatabase.findByFitnessCenterName('MCFIT')
-const mcfit = fitnessCenterDatabase.findBy('name', 'MCFIT')
 
-fitnessCenterRateHistory(mcfit)
+
+const abdullah = customerDatabase.findBy('name', 'Abdullah')
 
 
 
-// printbookinghistory(abdullah)
-// printbookinghistory(cemre)
+printbookinghistory(abdullah)
+
 
 
 

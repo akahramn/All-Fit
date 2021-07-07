@@ -5,6 +5,7 @@ const customerDatabase = require('./database/customer-database')
 const fitnessCenterDatabase = require('./database/fitnessCenter-database')
 
 const printBookingHistory = require('./lib/print-booking-history')
+const printFitnessCenterHistory = require('./lib/fitnessCenterRateHistory')
 
 const abdullah = Customer.create({name:'Abdullah', phoneNum:'5523761876', mail:'a.kahramnn@gmail.com'})
 const cemre = Customer.create({name:'Cemre', phoneNum:'1233211232', mail:'cemre3454@gmail.com'})
@@ -15,6 +16,7 @@ const powergym = FitnessCenter.create({name:'POWER-GYM', location:'Ankara', phon
 const atlasgym = FitnessCenter.create({name:'ATLAS-GYM', location:'Eskisehir', phoneNum:'04323413221'})
 const powerzone = FitnessCenter.create({name:'POWER-ZONE', location:'Izmir', phoneNum:'08834732345'})
 const ironside = FitnessCenter.create({name:'IRONSIDE', location:'Istanbul', phoneNum:'02133212323'})
+
 abdullah.book(mcfit, asfit, powergym)
 abdullah.book(asfit)
 abdullah.book(powergym)
@@ -28,8 +30,19 @@ abdullah.rate(mcfit,8,'There is very good fitness center')
 cemre.rate(powerzone,7,'I advise everyone')
 
 
-customerDatabase.save([abdullah, cemre])
-fitnessCenterDatabase.save([mcfit, asfit, powergym, atlasgym, powerzone, ironside])
+async function main(){
+   try {
+    await customerDatabase.save([abdullah, cemre])
+    await fitnessCenterDatabase.save([mcfit, asfit, powergym, atlasgym, powerzone, ironside])  
+    
+    
+   } catch (error) {
+       return console.console.log(error);
+   } 
+}
+main()
+
+
 
 //const customers = customerDatabase.load()
 

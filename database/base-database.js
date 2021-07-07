@@ -1,8 +1,11 @@
 //bu modul circular structure hatası almamızı engeller
+const { rejects } = require('assert')
+const { error } = require('console')
 const flatted = require('flatted')
 
 //file sistem modülünü ekliyoruz
 const fs = require('fs')
+const { resolve } = require('path')
 
 class BaseDatabase{
     constructor(model) {
@@ -12,41 +15,56 @@ class BaseDatabase{
     //database dosyaları kaydeder
 save(objects){
     //dosya ismine göre json dosyası oluşturur ve objeleri string olarak kaydeder
-    fs.writeFileSync(`${this.filename}.json`, flatted.stringify(objects,null,2))
+    return new Promise((resolve, reject) => {
+        fs.writeFile(`${this.filename}.json`, flatted.stringify(objects,null,2), (error) =>{
+            if(error) return reject(error)
+            
+            resolve()
+        })
+    })
+    
 }
 
 //databaseden dosyaları okur
 load() {
-    const file = fs.readFileSync(`./${this.filename}.json`)
-    const objects = flatted.parse(file)
+    return new Promise((resolve, reject) => {
+        fs.readFile(`./${this.filename}.json`, (error, file) => {
+            if(error) return reject(error)
 
-    return objects.map(this.model.create)
+            const objects = flatted.parse(file)
+
+            resolve(objects.map(this.model.create))
+        })
+    })
 }
 
 //veritabanına yeni bir obje ekler
-insert(object) {
-    const objects = this.load()
-    this.save(objects.concat(object))
+async insert(object) {
+  
+    const objects = await this.load()
+    return this.save(objects.concat(object))
 }
 //veritabanından belirtilen indexteki objeyi siler
-remove(index) {
-    const objects = this.load()
+async remove(index) {
+    const objects = await this.load()
 
     object.splice(index,1)
-    this.save(objects)
+    return this.save(objects)
 }
-update(object) {
-    const objects = this.load()
+
+
+async update(object) {
+    const objects = await this.load()
 
     const index = objects.findIndex(o => o.id == object.id)
 
-    // if (index == -1) throw new Error(`Cannot find ${this.model.name} instance with id ${object.id}`)
-
     objects.splice(index, 1, object)
-    this.save(objects)
+    return this.save(objects)
 }
-findBy(property, value) {
-    return this.load().find(o => o.name == value)
+
+async findBy(property, value) {
+    return (await this.load()).find(o => o[property] == value)
+    
   }
   
 }
