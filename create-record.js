@@ -6,10 +6,9 @@ const fitnessCenterDatabase = require('./database/fitnessCenter-database')
 
 const printBookingHistory = require('./lib/print-booking-history')
 const printFitnessCenterHistory = require('./lib/fitnessCenterRateHistory')
-<<<<<<< HEAD
+
 const { insert } = require('./database/customer-database')
-=======
->>>>>>> 808ef6a2cbd6035194268d9858e6a86edf484ff4
+
 
 const abdullah = Customer.create({name:'Abdullah', phoneNum:'5523761876', mail:'a.kahramnn@gmail.com'})
 const cemre = Customer.create({name:'Cemre', phoneNum:'1233211232', mail:'cemre3454@gmail.com'})
@@ -39,15 +38,12 @@ async function main(){
     await customerDatabase.save([abdullah, cemre])
     await fitnessCenterDatabase.save([mcfit, asfit, powergym, atlasgym, powerzone, ironside])  
     
-<<<<<<< HEAD
+
    } catch (e) {
        return console.log(e);
-=======
+
     
-   } catch (error) {
-       return console.console.log(error);
->>>>>>> 808ef6a2cbd6035194268d9858e6a86edf484ff4
-   } 
+   }
 }
 main()
 
