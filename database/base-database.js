@@ -42,13 +42,20 @@ load() {
 async insert(object) {
   
     const objects = await this.load()
-    return this.save(objects.concat(object))
+    if(!(object instanceof this.model)){
+        object = this.model.create(object)
+    }
+    await this.save(objects.concat(object))
+    return object
 }
 //veritabanından belirtilen indexteki objeyi siler
-async remove(index) {
+async removeBy(property, value) {
     const objects = await this.load()
 
-    object.splice(index,1)
+    const index = objects.findIndex(o => o[property] == value)
+    
+    objects.splice(index,1)
+    
     return this.save(objects)
 }
 

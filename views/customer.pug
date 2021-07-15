@@ -1,0 +1,11 @@
+extends layout 
+block content
+        h2 Customer Detail 
+        p Name = #{customer.name}
+        p Phone Number = #{customer.phoneNum}
+        p Mail = #{customer.mail}
+        
+        h2 Booking History 
+        ol
+          each booking in customer.bookings
+            li #{booking.Customer.name} was sports in #{booking.FitnessCenter.name}

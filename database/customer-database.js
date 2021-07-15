@@ -11,14 +11,6 @@ class CustomerDatabase extends BaseDatabase{
         return objects.find(o => o.name == name)
         
     }
-
-
-    findByName(name) {
-        const objects = this.load()
-        
-        return objects.find(o => o.name == name)
-    }
-
 }
 
 module.exports = new CustomerDatabase(Customer)
