@@ -1,0 +1,9 @@
+extends layout 
+block content
+        h2 Fitness Centers
+        p There are #{fitnessCenters.length} Fitness Center.
+
+        ol 
+            each fitnessCenter in fitnessCenters 
+                li 
+                     a(href=`/fitnessCenters/${fitnessCenter.id}`)  #{fitnessCenter.name} 

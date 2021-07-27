@@ -20,7 +20,7 @@ const atlasgym = FitnessCenter.create({name:'ATLAS-GYM', location:'Eskisehir', p
 const powerzone = FitnessCenter.create({name:'POWER-ZONE', location:'Izmir', phoneNum:'08834732345'})
 const ironside = FitnessCenter.create({name:'IRONSIDE', location:'Istanbul', phoneNum:'02133212323'})
 
-abdullah.book(mcfit, asfit, powergym)
+abdullah.book(mcfit)
 abdullah.book(asfit)
 abdullah.book(powergym)
 cemre.book(asfit)

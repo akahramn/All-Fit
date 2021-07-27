@@ -1,0 +1,11 @@
+extends layout 
+block content
+        h2 Fitness Center Detail 
+        p Name = #{fitnessCenter.name}
+        p Phone Number = #{fitnessCenter.phoneNum}
+        p Location = #{fitnessCenter.location}
+        
+        h2 Ratings 
+        ol
+          each rating in fitnessCenter.ratings
+            li <br/>  Customer Name: #{rating.customer.name} <br/> Point: #{rating.point}  <br/> Comment: #{rating.comment} <br/> 
