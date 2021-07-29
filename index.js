@@ -63,6 +63,18 @@ app.post('/customers/:customerId/bookings', async(req, res) => {
 
 })
 
+app.post('/customers/:customerId/rate', async(req, res) => {
+    const customer = await customerDatabase.findBy('id', req.params.customerId)
+    const fitnessCenter = await fitnessCenterDatabase.findBy('id', req.body.fitnessCenterId)
+    const point = req.body.point
+    const comment = req.body.comment
+
+    customer.rate(fitnessCenter, point, comment)
+
+    await fitnessCenterDatabase.update(fitnessCenter)
+    res.send(flatted.stringify(fitnessCenter))
+})
+
 app.delete('/customers/:customersId', async (req, res) => {
     await customerDatabase.removeBy('id', req.params.customersId)
     res.send('OK')
