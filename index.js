@@ -5,6 +5,7 @@ const flatted = require('flatted')
 const bodyParser = require('body-parser')
 const axios = require('axios');
 const FitnessCenter = require('./models/fitnessCenter')
+require('./mongo-connection')
 
 const app = express()
 const port = 3000
