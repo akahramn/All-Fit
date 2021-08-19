@@ -1,0 +1,12 @@
+extends layout
+block content
+  h2 Bookings
+  p There are #{bookings.length} bookings.
+
+  ol
+    each booking in bookings
+      li
+        p Customer:
+          a(href=`/customers/${booking.Customer.id}`) #{booking.Customer.name}
+        p Fitness Center:
+          a(href=`/fitnessCenters/${booking.FitnessCenter.id}`) #{booking.FitnessCenter.name}

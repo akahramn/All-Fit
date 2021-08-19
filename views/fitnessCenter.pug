@@ -1,4 +1,4 @@
-extends index 
+extends layout 
 block content
         h2 Fitness Center Detail 
         p Name = #{fitnessCenter.name}
@@ -8,4 +8,7 @@ block content
         h2 Ratings 
         ol
           each rating in fitnessCenter.ratings
-            li <br/>  Customer Name: #{rating.customer.name} <br/> Point: #{rating.point}  <br/> Comment: #{rating.comment} <br/> 
+            li
+              p Customer Name: #{rating.Customer.name} 
+              p Point: #{rating.point} 
+              p Comment: #{rating.comment}  

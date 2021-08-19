@@ -1,6 +1,6 @@
-const database = require('./database/base-database')
-const customerDatabase = require('./database/customer-database')
-const fitnessCenterDatabase = require('./database/fitnessCenter-database')
+const service = require('./service/base-service')
+const customerService = require('./service/customer-service')
+const fitnessCenterService = require('./service/fitnessCenter-service')
 const create = require('./create-record')
 
 const fitnessCenterRateHistory = require('./lib/fitnessCenterRateHistory')
@@ -15,8 +15,8 @@ const printBookingHistory = require('./lib/print-booking-history')
 
 
 async function main(){
-    const abdullah = await customerDatabase.findBy('name', 'Abdullah')
-    const mcfit = await fitnessCenterDatabase.findBy('name', 'MCFIT')
+    const abdullah = await customerService.findBy('name', 'Abdullah')
+    const mcfit = await fitnessCenterService.findBy('name', 'MCFIT')
 
     fitnessCenterRateHistory(mcfit)
     printBookingHistory(abdullah)

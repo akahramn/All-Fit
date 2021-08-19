@@ -1,13 +1,13 @@
 const Customer = require('./models/customer')
 const FitnessCenter = require('./models/fitnessCenter')
 
-const customerDatabase = require('./database/customer-database')
-const fitnessCenterDatabase = require('./database/fitnessCenter-database')
+const customerService = require('./service/customer-service')
+const fitnessCenterService = require('./service/fitnessCenter-service')
 
 const printBookingHistory = require('./lib/print-booking-history')
 const printFitnessCenterHistory = require('./lib/fitnessCenterRateHistory')
 
-const { insert } = require('./database/customer-database')
+const { insert } = require('./service/customer-service')
 
 
 const abdullah = Customer.create({name:'Abdullah', phoneNum:'5523761876', mail:'a.kahramnn@gmail.com'})
@@ -35,8 +35,8 @@ cemre.rate(powerzone,7,'I advise everyone')
 
 async function main(){
    try {
-    await customerDatabase.save([abdullah, cemre])
-    await fitnessCenterDatabase.save([mcfit, asfit, powergym, atlasgym, powerzone, ironside])  
+    await customerService.save([abdullah, cemre])
+    await fitnessCenterService.save([mcfit, asfit, powergym, atlasgym, powerzone, ironside])  
     
 
    } catch (e) {
@@ -49,7 +49,7 @@ main()
 
 
 
-//const customers = customerDatabase.load()
+//const customers = customerService.load()
 
 //customers.forEach(printBookingHistory)
 

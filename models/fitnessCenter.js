@@ -1,17 +1,15 @@
-const uuid = require('uuid')
+const mongoose = require('mongoose')
 
-class FitnessCenter{
-    constructor(id = uuid.v4(), name, location, phoneNum, ratings = []){
-        this.id = id
-        this.name = name
-        this.location = location
-        this.phoneNum = phoneNum
-        this.ratings = ratings
-    }
+const FitnessCenterSchema = new mongoose.Schema({
+    name: String,
+    phoneNum: Number,
+    location: String,
+    ratings: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Rating',
+        autopopulate: { maxDepth: 2 }
+    }]
+})
 
-    static create({id, name, location, phoneNum, ratings}) {
-        return new FitnessCenter(id, name, location, phoneNum, ratings)
-      }
-}
-
-module.exports = FitnessCenter
+FitnessCenterSchema.plugin(require('mongoose-autopopulate'))
+module.exports = mongoose.model('FitnessCenter', FitnessCenterSchema);
