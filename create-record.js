@@ -21,33 +21,33 @@ const powerzone = FitnessCenter.create({name:'POWER-ZONE', location:'Izmir', pho
 const ironside = FitnessCenter.create({name:'IRONSIDE', location:'Istanbul', phoneNum:'02133212323'})
 
 abdullah.book(mcfit)
-abdullah.book(asfit)
-abdullah.book(powergym)
-cemre.book(asfit)
-cemre.book(powerzone)
-cemre.book(ironside)
+// abdullah.book(asfit)
+// abdullah.book(powergym)
+// cemre.book(asfit)
+// cemre.book(powerzone)
+// cemre.book(ironside)
 
-abdullah.rate(mcfit,4,'Sports equipments is too old'),
-cemre.rate(mcfit,5,'Trainers do not help')
-abdullah.rate(mcfit,8,'There is very good fitness center')
-cemre.rate(powerzone,7,'I advise everyone')
+// abdullah.rate(mcfit,4,'Sports equipments is too old'),
+// cemre.rate(mcfit,5,'Trainers do not help')
+// abdullah.rate(mcfit,8,'There is very good fitness center')
+// cemre.rate(powerzone,7,'I advise everyone')
 
 
-async function main(){
-   try {
-    await customerService.save([abdullah, cemre])
-    await fitnessCenterService.save([mcfit, asfit, powergym, atlasgym, powerzone, ironside])  
+// async function main(){
+//    try {
+//     await customerService.save([abdullah, cemre])
+//     await fitnessCenterService.save([mcfit, asfit, powergym, atlasgym, powerzone, ironside])  
     
 
-   } catch (e) {
-       return console.log(e);
+//    } catch (e) {
+//        return console.log(e);
 
     
-   }
-}
-main()
+//    }
+// }
+// main()
 
-
+printBookingHistory(abdullah)
 
 //const customers = customerService.load()
 
