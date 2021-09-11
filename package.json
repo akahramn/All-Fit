@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "watch": "nodemon --ignore '*.json'",
-    "test": "jest"
+    "test": "jest --verbose",
+    "test-watch": "jest --verbose --watch"
   },
   "author": "Abdullah Kahraman",
   "license": "ISC",
