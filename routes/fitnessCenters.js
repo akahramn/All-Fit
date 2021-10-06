@@ -22,7 +22,7 @@ router.get('/:fitnessCenterId', async (req, res) => {
 })
 
 
-
+//Create new Fitness Center 
 router.post('/', async (req, res, next) => {
     try {
         const fitnessCenter = await fitnessCenterService.insert(req.body)
