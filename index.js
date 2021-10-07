@@ -7,11 +7,13 @@ const indexRouter = require('./routes/index')
 const customersRouter = require('./routes/customers')
 const fitnessCentersRouter = require('./routes/fitnessCenters')
 const bookingRouter = require('./routes/bookings')
+const cors = require('cors')
 
 const app = express()
 const port = 3000
 
 app.use(bodyParser.json())
+app.use(cors())
 app.set('view engine', 'pug')
 
 

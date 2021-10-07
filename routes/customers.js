@@ -5,7 +5,7 @@ const router = require('express').Router()
 //Show customers page
 router.get('/', async (req, res) => {
     const customers = await customerService.load()
-    res.render('customers', { customers })
+    res.send( customers )
 })
 
 router.get('/young-customers', async (req, res)=>{
