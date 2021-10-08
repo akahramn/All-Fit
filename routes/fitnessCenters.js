@@ -4,7 +4,7 @@ const router = require('express').Router()
 
 router.get('/', async (req, res) => {
     const fitnessCenters = await fitnessCenterService.load()
-    res.render('fitnessCenters', { fitnessCenters })
+    res.send(fitnessCenters)
 })
 
 //Rate

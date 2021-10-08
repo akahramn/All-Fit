@@ -12,9 +12,12 @@ export default createStore({
       const request = await axios.get(`http://localhost:3000/customers`)
       return request.data
     },
+    async fetchCustomer(){
+      
+    },
     async fetchFitnessCenters(){
-      const request = await axios.get(`http://localhost:3000/fitnesscenters`)
-      return request.date
+      const request = await axios.get(`http://localhost:3000/fitnessCenters`)
+      return request.data
     }
   }
   

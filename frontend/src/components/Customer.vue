@@ -2,7 +2,7 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'Customers',
+  name: 'Customer',
   props: {
     msg: String
   },
@@ -30,7 +30,7 @@ export default {
     <h2>Customers</h2>
     <ol>
       <li v-for="customer in customers" :key="customer">
-        <a v-bind:href="'customers/'+ customer._id">{{customer.name}}</a>
+        {{customer.name}}
       </li>
     </ol>
   </div>

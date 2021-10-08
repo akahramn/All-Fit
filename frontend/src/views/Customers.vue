@@ -1,11 +1,11 @@
 <script>
 // @ is an alias to /src
-import FitnessCenters from '@/components/FitnessCenters.vue'
+import Customers from '@/components/Customers.vue'
 
 export default {
-  name: 'Fitness Centers',
+  name: 'Home',
   components: {
-    FitnessCenters
+    Customers
   }
 }
 </script>
@@ -13,6 +13,6 @@ export default {
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <FitnessCenters msg="FitnessCenters"/>
+    <Customers msg="Welcome to All Fit App"/>
   </div>
 </template>
