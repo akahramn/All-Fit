@@ -3,7 +3,7 @@
 import Customers from '@/components/Customers.vue'
 
 export default {
-  name: 'Home',
+  name: 'CustomersPage',
   components: {
     Customers
   }

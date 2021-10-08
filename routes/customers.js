@@ -16,7 +16,7 @@ router.get('/young-customers', async (req, res)=>{
 //Show cutomer page
 router.get('/:customerId', async (req, res) => { 
     const customer = await customerService.find(req.params.customerId)
-    res.render('customer', {customer})
+    res.send(customer)
 } )
 
 //Add new Customer

@@ -8,16 +8,16 @@ export default {
   },
   data: function(){
     return{
-      customers: [],
+      customer: {},
     }
   },
 
   async mounted () {
-    this.customers = await this.fetchCustomers()
+    this.customer = await this.fetchCustomer(this.$route.params.customerId)
   },
 
   methods: {
-    ...mapActions(['fetchCustomers']),
+    ...mapActions(['fetchCustomer']),
     
   }
   
@@ -27,11 +27,18 @@ export default {
 <template>
   <div class="hello">
     <p>This app unite all fitness centers in the world!!!</p>
-    <h2>Customers</h2>
+    <h2>Customer Info</h2>
+    <p>Name: {{customer.name}} <br>
+       Age : {{customer.age}} <br>
+       mail: {{customer.mail}} <br>
+       Phone Number: {{customer.phoneNum}} 
+    </p>
+    <h2>Bookings</h2>
     <ol>
-      <li v-for="customer in customers" :key="customer">
-        {{customer.name}}
+      <li v-for="booking in customer.bookings" :key="booking">
+          {{booking.Customer.name}} sports in {{booking.FitnessCenter.name}}
       </li>
     </ol>
+
   </div>
 </template>

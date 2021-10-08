@@ -3,7 +3,7 @@
 import Customer from '@/components/Customer.vue'
 
 export default {
-  name: 'Customer',
+  name: 'CustomerView',
   components: {
     Customer
   }
@@ -13,6 +13,6 @@ export default {
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <Customers msg="Customer Page"/>
+    <Customer msg="Customer Page"/>
   </div>
 </template>

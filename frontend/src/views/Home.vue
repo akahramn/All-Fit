@@ -1,11 +1,11 @@
 <script>
 // @ is an alias to /src
-import Customers from '@/components/Customers.vue'
+import Home from '@/components/Home.vue'
 
 export default {
-  name: 'Home',
+  name: 'HomePage',
   components: {
-    Customers
+    Home
   }
 }
 </script>
@@ -13,6 +13,6 @@ export default {
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <Customers msg="Welcome to All Fit App"/>
+    <Home msg="Welcome to All Fit App"/>
   </div>
 </template>

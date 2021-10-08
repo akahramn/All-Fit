@@ -18,7 +18,7 @@ router.post('/:fitnessCenterId/rate', async (req, res) => {
 
 router.get('/:fitnessCenterId', async (req, res) => {
     const fitnessCenter = await fitnessCenterService.find(req.params.fitnessCenterId)
-    res.render('fitnessCenter', { fitnessCenter })
+    res.send(fitnessCenter)
 })
 
 

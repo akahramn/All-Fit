@@ -3,7 +3,7 @@
 import FitnessCenters from '@/components/FitnessCenters.vue'
 
 export default {
-  name: 'Fitness Centers',
+  name: 'Fitness Centers Page',
   components: {
     FitnessCenters
   }
