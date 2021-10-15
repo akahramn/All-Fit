@@ -1,42 +1,42 @@
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 
 export default {
-    name: 'FitnessCenter',
+  name: "FitnessCenter",
 
-    data: function(){
-        return{
-            fitnessCenter: {},
-            
-        }
-    },
-    async mounted () {
-        this.fitnessCenter = await this.fetchFitnessCenter(this.$route.params.fitnessCenterId)
-    },
+  data: function () {
+    return {
+      fitnessCenter: {},
+    };
+  },
+  
+  async mounted () {
+    this.fitnessCenter = await this.fetchFitnessCenter(this.$route.params.fitnessCenterId);
+  },
 
-    methods:{
-        ...mapActions(['fetchFitnessCenter'])
-    }
+  methods: {
+    ...mapActions(["fetchFitnessCenter"]),
+  }
 }
 </script>
 
 <template>
-    <div>
-        <h2>Fitness Center Info</h2>
-        <p> 
-            Name: {{fitnessCenter.name}} <br>
-            Phone Number: {{fitnessCenter.phoneNum}} <br>
-            Location: {{fitnessCenter.location}}
+  <div>
+    <h2>Fitness Center Info</h2>
+    <p>
+      Name: {{ fitnessCenter.name }} <br />
+      Phone Number: {{ fitnessCenter.phoneNum }} <br />
+      Location: {{ fitnessCenter.location }}
+    </p>
+    <h2>Ratings</h2>
+    <ol>
+      <li v-for="rating in fitnessCenter.ratings" :key="rating">
+        <p>
+            Customer Name: {{ rating.Customer.name }} <br>
+            Point: {{ rating.point }} <br>
+            Comment: {{ rating.comment }}
         </p>
-        <h2>Ratings</h2>
-        <ol>
-            <li v-for="rating in fitnessCenter.ratings" :key="rating">
-                <p>
-                    Customer Name: {{rating.Customer.name}}
-                    Point: {{rating.point}}
-                    Comment: {{rating.comment}}
-                </p>
-            </li>
-        </ol>
-    </div>
+      </li>
+    </ol>
+  </div>
 </template>

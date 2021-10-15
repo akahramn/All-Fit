@@ -22,6 +22,7 @@ export default createStore({
     },
     async fetchFitnessCenter(ctx, fitnessCenterId){
       const request = await axios.get(`/fitnessCenters/${fitnessCenterId}`)
+      return request.data
     }
   }
   

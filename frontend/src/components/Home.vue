@@ -10,6 +10,8 @@ export default {
 <template>
     <div>
         <h2>Welcome to All-Fit App</h2>
+        <a href="">Sign Up</a> <br>
+        <a href="">Log In</a>
     </div>
     
 </template>

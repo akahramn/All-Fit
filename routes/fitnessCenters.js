@@ -4,6 +4,7 @@ const router = require('express').Router()
 
 router.get('/', async (req, res) => {
     const fitnessCenters = await fitnessCenterService.load()
+    //res.render("fitnessCenters", {fitnessCenters})
     res.send(fitnessCenters)
 })
 
@@ -18,6 +19,7 @@ router.post('/:fitnessCenterId/rate', async (req, res) => {
 
 router.get('/:fitnessCenterId', async (req, res) => {
     const fitnessCenter = await fitnessCenterService.find(req.params.fitnessCenterId)
+    //res.render("fitnessCenter", {fitnessCenter})
     res.send(fitnessCenter)
 })
 
