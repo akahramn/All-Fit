@@ -28,7 +28,6 @@ export default {
 <template>
   <div class="hello">
     <p>This app unite all fitness centers in the world!!!</p>
-    <p>{{Object.keys(customer)}}</p>
     <h2>Customer Info</h2>
     <p>Name: {{customer.name}} <br>
        Age : {{customer.age}} <br>
