@@ -27,6 +27,13 @@ export default createStore({
     async addNewCustomer(ctx, {name, phoneNum, mail, age } ) {
       const request = await axios.post(`/customers`, { name, phoneNum, mail, age })
       return request.data
+    },
+    async rateFitnessCenter(ctx, {point, comment, customerId, fitnessCenterId}) {
+      const request = await axios.post(`/fitnesscenters/${fitnessCenterId}/rate`, {point, comment, customerId})
+      return request.data
+    },
+    async addNewBooking(ctx, { customerId, fitnessCenterId }) {
+      const request = await axios.post(`/customers/${ customerId }/bookings`, { fitnessCenterId })
     }
   }
   

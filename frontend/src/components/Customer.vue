@@ -34,6 +34,7 @@ export default {
        mail: {{customer.mail}} <br>
        Phone Number: {{customer.phoneNum}} 
     </p>
+    <a v-bind:href="'/customers/'+ customer._id + '/bookings'"><button>Book</button></a>
     <h2>Bookings</h2>
     <ol>
       <li v-for="booking in customer.bookings" :key="booking">

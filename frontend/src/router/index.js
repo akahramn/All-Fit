@@ -5,6 +5,8 @@ import FitnessCenters from '../views/FitnessCenters.vue'
 import CustomerView from '../views/Customer.vue'
 import FitnessCenter from '../views/FitnessCenter.vue'
 import SignUp from '../views/SignUp.vue'
+import Rate from '../views/Rate.vue'
+import Booking from '../views/Booking.vue'
 
 const routes = [
   {
@@ -36,6 +38,16 @@ const routes = [
     path: '/fitnessCenters/:fitnessCenterId',
     name: 'FitnessCenterView',
     component: FitnessCenter
+  },
+  {
+    path: '/fitnessCenters/:fitnessCenterId/rate',
+    name: 'RateView',
+    component: Rate
+  },
+  {
+    path:'/customers/:customerId/bookings',
+    name: 'Booking',
+    component: Booking
   },
   {
     path: '/about',

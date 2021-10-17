@@ -26,7 +26,9 @@ export default {
     <p>
       Name: {{ fitnessCenter.name }} <br />
       Phone Number: {{ fitnessCenter.phoneNum }} <br />
-      Location: {{ fitnessCenter.location }}
+      Location: {{ fitnessCenter.location }} <br>
+      <a v-bind:href="'/fitnessCenters/'+ fitnessCenter._id +'/rate'"><button>Rate</button></a>
+      
     </p>
     <h2>Ratings</h2>
     <ol>
