@@ -4,9 +4,10 @@ import Customers from '../views/Customers.vue'
 import FitnessCenters from '../views/FitnessCenters.vue'
 import CustomerView from '../views/Customer.vue'
 import FitnessCenter from '../views/FitnessCenter.vue'
-import SignUp from '../views/SignUp.vue'
+import Register from '../views/Register.vue'
 import Rate from '../views/Rate.vue'
 import Booking from '../views/Booking.vue'
+import LogIn from '../views/LogIn.vue'
 
 const routes = [
   {
@@ -15,9 +16,14 @@ const routes = [
     component: Home
   },
   {
-    path: '/signUp',
-    name: 'SignUp',
-    component: SignUp
+    path: '/logIn',
+    name: 'LogIn',
+    component: LogIn
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
   },
   {
     path: '/customers',

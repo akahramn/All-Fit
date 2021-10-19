@@ -2,10 +2,9 @@ const mongoose = require('mongoose')
 const Booking = require('../models/booking')
 
 const CustomerSchema = new mongoose.Schema({
-    name: { type: String, required: true, minlenght: 2 },
-    phoneNum: { type: Number, required: true },
-    age: { type: Number, required: true, min: 16 },
-    mail: String,
+    userName: { type: String, required: true, minlenght: 2 },
+    mail: {type: String, required: true},
+    passWord: {type: String, required: true, minlenght: 6},
     bookings: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Booking',

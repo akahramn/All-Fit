@@ -1,10 +1,11 @@
 <script>
-import SignUp from '../components/signUp.vue'
+import Register from '../components/Register.vue'
+
 
 export default {
-    name: "SignUpViews",
+    name: "RegisterViews",
     components: {
-        SignUp
+        Register
     },
 
 
@@ -14,6 +15,6 @@ export default {
 
 <template>
     <div>
-        <sign-up/>
+        <Register/>
     </div>
 </template>
