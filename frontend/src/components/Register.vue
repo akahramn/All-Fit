@@ -1,6 +1,6 @@
 <script>
 import {mapActions} from 'vuex'
-var userName, mail, password;
+var userName, mail, passWord;
 
 export default {
     name: 'Register',
@@ -9,7 +9,7 @@ export default {
         return {
             userName,
             mail,
-            password,
+            passWord,
             passwordFieldType: "password"
         }
     },
@@ -21,8 +21,8 @@ export default {
             this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
         },
         
-        async register({userName, mail, password }) {
-            await this.addNewCustomer({ userName, mail, password })
+        async register({ userName, mail, passWord }) {
+            await this.addNewCustomer({ userName, mail, passWord })
             alert('SUCCESSFUl')
         }
     },
@@ -36,10 +36,10 @@ export default {
     <p>Mail</p>
     <input v-model="mail" placeholder="john@gmail.com" />
     <p>Password</p>
-    <input :type="passwordFieldType" v-model="password" placeholder="***********">
+    <input :type="passwordFieldType" v-model="passWord" placeholder="***********">
     <button type="password" @click="switchVisibility">show / hide</button>
     <br />
-    <a href="http://localhost:8080/logIn"><button v-on:click="register({userName: userName, mail: mail, password: password })">Register</button></a>
-    <p>{{ userName }}, {{ mail }}</p>
+    <a href="http://localhost:8080/logIn"><button v-on:click="register({ userName: userName, mail: mail, passWord: passWord })">Register</button></a>
+    <p>{{ userName }}, {{ mail }}, {{ passWord }} </p>
   </div>
 </template>

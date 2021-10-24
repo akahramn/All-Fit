@@ -7,7 +7,7 @@ import FitnessCenter from '../views/FitnessCenter.vue'
 import Register from '../views/Register.vue'
 import Rate from '../views/Rate.vue'
 import Booking from '../views/Booking.vue'
-import LogIn from '../views/LogIn.vue'
+import Login from '../views/Login.vue'
 
 const routes = [
   {
@@ -16,9 +16,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/logIn',
-    name: 'LogIn',
-    component: LogIn
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
   {
     path: '/register',

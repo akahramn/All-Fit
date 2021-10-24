@@ -21,6 +21,7 @@ router.get('/:customerId', async (req, res) => {
 
 //Add new Customer
 router.post('/', async (req, res) => {
+    console.log(req.body)
     const customer = await customerService.insert(req.body)
     res.send(customer)
 })

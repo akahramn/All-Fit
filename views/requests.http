@@ -2,10 +2,10 @@ POST http://localhost:3000/customers HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Ali",
-    "phoneNum": "98776876",
-    "mail": "ali@gmail.com",
-    "age": 22
+    "userName": "johnygood",
+    "mail": "johnygood@gmail.com",
+    "passWord": "johnygood"
+    
 }
 
 ###

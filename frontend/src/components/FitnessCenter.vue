@@ -34,7 +34,7 @@ export default {
     <ol>
       <li v-for="rating in fitnessCenter.ratings" :key="rating">
         <p>
-            Customer Name: {{ rating.Customer.name }} <br>
+            Customer Name: {{ rating.Customer.userName }} <br>
             Point: {{ rating.point }} <br>
             Comment: {{ rating.comment }}
         </p>
