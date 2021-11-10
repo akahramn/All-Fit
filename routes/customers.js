@@ -1,6 +1,6 @@
 const customer = require('../models/customer')
 const customerService = require('../services/customer-service')
-
+const bcrypt = require('bcrypt')
 const router = require('express').Router()
 
 //Show customers page
@@ -33,8 +33,18 @@ router.get('/login', async (req, res) => {
 
 
 //Add new Customer
-router.post('/', async (req, res) => {
-    console.log(req.body)
+router.post('/register', async (req, res) => {
+    req.body.passWord = await bcrypt.hash(req.body.passWord, 10, (err, hash) => {
+      if(err) {
+            res.status(500).json({
+                error: err 
+            })
+        }else {
+            console.log('PASSWORD =', hash)
+            return hash
+        }
+    })
+
     const customer = await customerService.insert(req.body)
     res.send(customer)
 })
