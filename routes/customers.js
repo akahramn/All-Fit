@@ -1,3 +1,4 @@
+const customer = require('../models/customer')
 const customerService = require('../services/customer-service')
 
 const router = require('express').Router()
@@ -18,6 +19,18 @@ router.get('/:customerId', async (req, res) => {
     const customer = await customerService.find(req.params.customerId)
     res.send(customer)
 } )
+
+router.get('/login', async (req, res) => {
+    //if(await customerService.findBy(password, req.body.password) && customerService.findBy(username, req.body.username)){
+    //    alert('HEELLLOOOOOOO')
+    //    res.send()
+    //}
+    const passWor = await customerService.findBy(passWord, req.body.passWord)
+    console.log(passWor)
+    res.send(passWor)
+    
+})
+
 
 //Add new Customer
 router.post('/', async (req, res) => {

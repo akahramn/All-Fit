@@ -17,17 +17,16 @@ export default {
   },
 
   methods: {
-    ...mapActions(["fetchCustomers"]),
+    ...mapActions(["fetchCustomers", "loginCustomer"]),
 
     switchVisibility() {
         this.passwordFieldType === "password" ? "text" : "password";
     },
 
-    async login(userName, passWord) {
-        
-        if (this.customers.find(userName) == userName) {
-        alert("succesful");
-      } else alert("FAİL");
+    async login({ userName, passWord }) {
+        alert('YOU CLICK')
+        await this.loginCustomer({ userName, passWord })
+        alert('HELLOOOOOO')
     },
   },
 };
@@ -45,9 +44,10 @@ export default {
         placeholder="***********"
       /><button type="password" @click="switchVisibility">show / hide</button>
     </p>
-    <button @click="login((userName = userName), (passWord = passWord))">
+    <button @click="login({ userName : userName, passWord : passWord })">
       Login
     </button>
+    <p>{{userName}} --- {{passWord}}</p>
   </div>
 </template>
 

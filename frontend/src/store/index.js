@@ -28,6 +28,10 @@ export default createStore({
       const request = await axios.post(`/customers`, { userName, mail, passWord })
       return request.data
     },
+    async loginCustomer(ctx, { userName, passWord }) {
+      const request = await axios.get(`/login`, { userName, passWord })
+      return request.data
+    },
     async rateFitnessCenter(ctx, {point, comment, customerId, fitnessCenterId}) {
       const request = await axios.post(`/fitnesscenters/${fitnessCenterId}/rate`, {point, comment, customerId})
       return request.data
