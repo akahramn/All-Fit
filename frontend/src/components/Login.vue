@@ -5,7 +5,7 @@ export default {
   name: "Login",
   data() {
     return {
-      userName: "",
+      mail: "",
       passWord: "",
       passwordFieldType: "password",
       customers: [],
@@ -23,9 +23,9 @@ export default {
         this.passwordFieldType === "password" ? "text" : "password";
     },
 
-    async login({ userName, passWord }) {
+    async login({ mail, passWord }) {
         alert('YOU CLICK')
-        await this.loginCustomer({ userName, passWord })
+        await this.loginCustomer({ mail, passWord })
         alert('HELLOOOOOO')
     },
   },
@@ -35,7 +35,7 @@ export default {
 <template>
   <div>
     <p>Login Page</p>
-    <p>User Name / Email: <input v-model="userName" placeholder="Ex: a.kahramnn" /></p>
+    <p>Email: <input v-model="mail" placeholder="Ex: a.kahramnn" /></p>
     <p>
       Password:
       <input
@@ -44,10 +44,10 @@ export default {
         placeholder="***********"
       /><button type="password" @click="switchVisibility">show / hide</button>
     </p>
-    <button @click="login({ userName : userName, passWord : passWord })">
+    <button v-on:click="login({ mail : mail, passWord : passWord })">
       Login
     </button>
-    <p>{{userName}} --- {{passWord}}</p>
+    <p>{{mail}} --- {{passWord}}</p>
   </div>
 </template>
 

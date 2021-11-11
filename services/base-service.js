@@ -43,7 +43,7 @@ class BaseService {
   }
 
   async findBy(property, value) {
-    return this.model.find({ [property]: value })
+    return await this.model.find({ [property]: value })
   }
 
   async query(obj) {
