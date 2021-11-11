@@ -21,10 +21,6 @@ router.get('/:customerId', async (req, res) => {
 } )
 
 router.get('/login', async (req, res) => {
-    //if(await customerService.findBy(password, req.body.password) && customerService.findBy(username, req.body.username)){
-    //    alert('HEELLLOOOOOOO')
-    //    res.send()
-    //}
     const passWor = await customerService.findBy(passWord, req.body.passWord)
     console.log(passWor)
     res.send(passWor)
@@ -34,16 +30,10 @@ router.get('/login', async (req, res) => {
 
 //Add new Customer
 router.post('/register', async (req, res) => {
-    req.body.passWord = await bcrypt.hash(req.body.passWord, 10, (err, hash) => {
-      if(err) {
-            res.status(500).json({
-                error: err 
-            })
-        }else {
-            console.log('PASSWORD =', hash)
-            return hash
-        }
+    req.body.passWord = await bcrypt.hash( req.body.passWord, 10 ).then( (hash) => {
+       return hash
     })
+    console.log(req.body.passWord)
 
     const customer = await customerService.insert(req.body)
     res.send(customer)
