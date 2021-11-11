@@ -30,7 +30,7 @@ router.get('/login', async (req, res) => {
 
 //Add new Customer
 router.post('/register', async (req, res) => {
-    req.body.passWord = await bcrypt.hash( req.body.passWord, 10 ).then( (hash) => {
+    req.body.passWord = await bcrypt.hash( req.body.passWord, 10 ).then((hash) => {
        return hash
     })
     console.log(req.body.passWord)
