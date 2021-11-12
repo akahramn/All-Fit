@@ -2,18 +2,15 @@
 import { mapActions } from "vuex";
 
 export default {
+  
   name: "Login",
   data() {
     return {
       mail: "",
       passWord: "",
       passwordFieldType: "password",
-      customers: [],
+      customer: {}
     };
-  },
-
-  async mounted () {
-      this.customers = await this.fetchCustomers();
   },
 
   methods: {
@@ -24,9 +21,10 @@ export default {
     },
 
     async login({ mail, passWord }) {
-        alert('YOU CLICK')
-        await this.loginCustomer({ mail, passWord })
-        alert('HELLOOOOOO')
+        this.customer = await this.loginCustomer({ mail, passWord })
+
+        const userId = this.customer
+        this.$router.push({ path: `/customers/${userId}` })
     },
   },
 };
@@ -44,10 +42,12 @@ export default {
         placeholder="***********"
       /><button type="password" @click="switchVisibility">show / hide</button>
     </p>
-    <button v-on:click="login({ mail : mail, passWord : passWord })">
+
+    <button v-on:click="login({ mail: mail, passWord: passWord })">
       Login
     </button>
-    <p>{{mail}} --- {{passWord}}</p>
+
+    <p>{{ mail }} --- {{ passWord }}</p>
   </div>
 </template>
 

@@ -30,7 +30,7 @@ export default {
     <h2>Customers</h2>
     <ol>
       <li v-for="customer in customers" :key="customer">
-        <a v-bind:href="'customers/'+ customer._id">{{customer.userName}}</a>
+        <a v-bind:href="'customers/'+ customer._id">{{ customer.userName }}</a>
       </li>
     </ol>
   </div>

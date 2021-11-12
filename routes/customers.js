@@ -38,13 +38,10 @@ router.post('/login', async (req, res) => {
                 })
             }
             if (result) {
-                const token = jwt.sign({email: customer[0].mail, id: customer[0]._id}, 'secret', {expiresIn: "1h"})
-                console.log("Auth Successful")
-                console.log(token)
-                return res.status(200).json({
-                    message: "Auth successful",
-                    token: token
-                })
+                const token = jwt.sign({ id: customer[0]._id }, 'secret', {expiresIn: "1h"})
+                const decoded = jwt.verify(token, 'secret')
+                return res.send(decoded.id)
+                
             }
         })
     })
