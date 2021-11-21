@@ -1,7 +1,9 @@
+require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 
 require('./mongo-connection')
+
 
 const indexRouter = require('./routes/index')
 const customersRouter = require('./routes/customers')

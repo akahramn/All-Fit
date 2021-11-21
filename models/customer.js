@@ -1,3 +1,4 @@
+const { JsonWebTokenError } = require('jsonwebtoken');
 const mongoose = require('mongoose')
 const Booking = require('../models/booking')
 

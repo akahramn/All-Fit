@@ -10,11 +10,6 @@ router.get('/', async (req, res) => {
     res.send(customers)
 })
 
-router.get('/young-customers', async (req, res) => {
-    const customers = await customerService.findYoungCustomers()
-    res.render('customers', { customers })
-})
-
 //Show cutomer page
 router.get('/:customerId', async (req, res) => {
     const customer = await customerService.find(req.params.customerId)
@@ -38,19 +33,14 @@ router.post('/login', async (req, res) => {
                 })
             }
             if (result) {
-                const token = jwt.sign({ id: customer[0]._id }, 'secret', {expiresIn: "1h"})
-                const decoded = jwt.verify(token, 'secret')
-                return res.send(decoded.id)
+                const token = jwt.sign({ id: customer[0]._id }, `${process.env.JWT_KEY}`, { expiresIn: "1h" })
                 
+                return res.status(200).json({token: token})
+
             }
         })
     })
 })
-
-
-
-
-
 
 //Add new Customer
 router.post('/register', async (req, res) => {

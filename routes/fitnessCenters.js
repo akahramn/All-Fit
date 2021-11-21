@@ -1,7 +1,6 @@
 const fitnessCenterService = require('../services/fitnessCenter-service')
 const ratingService = require('../services/rating-service')
 const router = require('express').Router()
-
 router.get('/', async (req, res) => {
     const fitnessCenters = await fitnessCenterService.load()
     //res.render("fitnessCenters", {fitnessCenters})
@@ -9,7 +8,7 @@ router.get('/', async (req, res) => {
 })
 
 //Rate
-router.post('/:fitnessCenterId/rate', async (req, res) => {
+router.post('/:fitnessCenterId/rate',async (req, res) => {
     const { customerId, comment, point } = req.body
     const fitnessCenterId = req.params.fitnessCenterId
 
